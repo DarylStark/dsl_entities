@@ -1,0 +1,27 @@
+{
+    "name": "DSL Entities",
+    "version": "0.0.1",
+    "description": "A observer style entity class",
+    "keywords": "tools",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DarylStark/dsl_entities/"
+    },
+    "authors": [
+        {
+            "name": "Daryl Stark",
+            "email": "daryl@dstark.nl",
+            "url": "https://github.com/DarylStark"
+        }
+    ],
+    "flags": [
+        "-std=gnu++17"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/DarylStark/dsl_entities/",
+    "dependencies": {
+        "dsl_models": "~0.0.1"
+    },
+    "frameworks": "*",
+    "platforms": "*"
+}
