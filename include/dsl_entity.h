@@ -27,8 +27,8 @@ namespace dsl
         struct EntitySubscription : public dsl::models::Subscription<entity_callback_type>
         {
             // Factory methods for this class
-            static EntitySubscription create_entity_subscription(entity_callback_type callback, std::string identifier, bool run_always = false);
-            static EntitySubscription create_threaded_entity_subscription(entity_callback_type callback, std::string identifier, bool run_always = false);
+            static EntitySubscription make_entity_subscription(entity_callback_type callback, std::string identifier, bool run_always = false);
+            static EntitySubscription make_threaded_entity_subscription(entity_callback_type callback, std::string identifier, bool run_always = false);
 
             // Operators
             bool operator==(const EntitySubscription &other) const;
