@@ -6,14 +6,14 @@ namespace dsl
     {
         namespace exceptions
         {
-            EntityIncompatibleType::EntityIncompatibleType(const std::string &message)
-                : __message(message)
+            EntityException::EntityException(const std::string &message)
+                : dsl::exceptions::DSLException(message)
             {
             }
 
-            const char *EntityIncompatibleType::what() const noexcept
+            EntityIncompatibleType::EntityIncompatibleType(const std::string &message)
+                : EntityException(message)
             {
-                return __message.c_str();
             }
         };
     };
