@@ -67,6 +67,9 @@ namespace dsl
             EntityType _value;
 
         public:
+            // Factory methods for this class
+            static Entity make_entity(EntityType value);
+
             // Constructors
             explicit Entity(EntityType value);
             Entity();

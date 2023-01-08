@@ -4,8 +4,20 @@ namespace dsl
 {
     namespace entities
     {
-        Entity::Entity(Entity::EntityType value) : _value(value) {}
-        Entity::Entity() {}
+        Entity Entity::make_entity(EntityType value)
+        {
+            // Create a new entity and return it
+            return Entity(value);
+        }
+
+        Entity::Entity(Entity::EntityType value)
+            : _value(value)
+        {
+        }
+
+        Entity::Entity()
+        {
+        }
 
         void Entity::subscribe(EntitySubscription subscription)
         {
