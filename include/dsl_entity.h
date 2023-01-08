@@ -20,26 +20,8 @@ namespace dsl
         struct EntitySubscription;
         struct EntityEvent;
 
-        // Typedef for the variant that we are going to use in the Entity
-        typedef std::variant<
-            bool,
-            int,
-            unsigned int,
-            float>
-            entity_value_type;
-
         // Typedef for the callback method
         typedef std::function<void(const EntityEvent &)> entity_callback_type;
-
-        // Enum with the types; should match the order of the `variant` in the line
-        // above this.
-        enum entity_type_name
-        {
-            Bool,
-            Integer,
-            UnsignedInteger,
-            Float
-        };
 
         // Class to define a Entity Subscription
         struct EntitySubscription : public dsl::models::Subscription<entity_callback_type>
@@ -58,15 +40,35 @@ namespace dsl
         // The Entity class defines entities in a Observer-pattern
         class Entity
         {
+
+        public:
+            // Types
+            typedef std::variant<
+                bool,
+                int,
+                unsigned int,
+                float>
+                EntityType;
+
+            // Enum with the types; should match the order of the `variant` in the line
+            // above this.
+            enum EntityTypeName
+            {
+                Bool,
+                Integer,
+                UnsignedInteger,
+                Float
+            };
+
         private:
             std::list<EntitySubscription> __subscriptions;
 
         protected:
-            entity_value_type _value;
+            EntityType _value;
 
         public:
             // Constructors
-            explicit Entity(entity_value_type value);
+            explicit Entity(EntityType value);
             Entity();
 
             // Copy constructor can be default
@@ -81,14 +83,14 @@ namespace dsl
             void publish(bool value_changed) const;
 
             // Method to set the value
-            Entity &set(entity_value_type value);
+            Entity &set(EntityType value);
 
             // Methods to get the value and the valuetype
-            entity_value_type get() const;
-            entity_type_name get_type() const;
+            EntityType get() const;
+            EntityTypeName get_type() const;
 
             // Overloading operators
-            Entity &operator=(entity_value_type value);
+            Entity &operator=(EntityType value);
             Entity operator++(int);
             Entity operator++();
             Entity operator--(int);

@@ -4,7 +4,7 @@ namespace dsl
 {
     namespace entities
     {
-        Entity::Entity(entity_value_type value) : _value(value) {}
+        Entity::Entity(Entity::EntityType value) : _value(value) {}
         Entity::Entity() {}
 
         void Entity::subscribe(EntitySubscription subscription)
@@ -50,7 +50,7 @@ namespace dsl
             }
         }
 
-        Entity &Entity::set(entity_value_type value)
+        Entity &Entity::set(Entity::EntityType value)
         {
             bool changed = _value != value;
             _value = value;
@@ -59,17 +59,17 @@ namespace dsl
         }
 
         // Methods to get the value and the valuetype
-        entity_value_type Entity::get() const
+        Entity::EntityType Entity::get() const
         {
             return _value;
         }
 
-        entity_type_name Entity::get_type() const
+        Entity::EntityTypeName Entity::get_type() const
         {
-            return entity_type_name(_value.index());
+            return Entity::EntityTypeName(_value.index());
         }
 
-        Entity &Entity::operator=(entity_value_type value)
+        Entity &Entity::operator=(Entity::EntityType value)
         {
             return set(value);
         }
