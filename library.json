@@ -20,7 +20,7 @@
     "license": "MIT",
     "homepage": "https://github.com/DarylStark/dsl_entities/",
     "dependencies": {
-        "dsl": "~0.0.1"
+        "dsl": "^0.0.1"
     },
     "frameworks": "*",
     "platforms": "*"
