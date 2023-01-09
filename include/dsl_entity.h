@@ -9,8 +9,7 @@
 #include <memory>
 
 #include "dsl_entities_exceptions.h"
-#include <dsl_models_subscription.h>
-#include <dsl_models_event.h>
+#include <dsl_types_event.h>
 
 namespace dsl
 {
@@ -24,7 +23,7 @@ namespace dsl
         typedef std::function<void(const EntityEvent &)> entity_callback_type;
 
         // Class to define a Entity Subscription
-        struct EntitySubscription : public dsl::models::Subscription<entity_callback_type>
+        struct EntitySubscription : public dsl::types::Subscription<entity_callback_type>
         {
             // Factory methods for this class
             static EntitySubscription make_entity_subscription(entity_callback_type callback, std::string identifier, bool run_always = false);
@@ -109,7 +108,7 @@ namespace dsl
 
         // The EntityEvent class can be used by callbacks to identify the event that
         // happend.
-        struct EntityEvent : public dsl::models::Event<Entity, EntitySubscription>
+        struct EntityEvent : public dsl::types::Event<Entity, EntitySubscription>
         {
             // Factory methods
             static EntityEvent create_entity_event(const Entity &entity, const EntitySubscription &subscription, bool value_changed);
