@@ -12,7 +12,7 @@ namespace dsl
         typedef std::pair<bool, Entity &> register_return_type;
 
         // Export a global object for entities
-        extern std::unordered_map<std::string, Entity> gem_n;
+        extern std::unordered_map<std::string, Entity> gem;
 
         // Functions for the global entity manager
         register_return_type register_entity(std::string name, Entity entity);
