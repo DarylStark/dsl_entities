@@ -2,7 +2,7 @@
 
 This repository contains the code for the DSL Entities module. It has the following dependencies:
 
--   DSL
+-   `dsl`; can be found on [DarylStark/dsl](https://github.com/DarylStark/dsl)
 
 The Entities module is contained in the `dsl::entities` namespace and contains two subparts:
 
