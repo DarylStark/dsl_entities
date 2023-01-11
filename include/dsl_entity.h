@@ -5,8 +5,6 @@
 #include <list>
 #include <string>
 #include <variant>
-#include <thread>
-#include <memory>
 
 #include "dsl_entities_exceptions.h"
 #include <dsl_types_event.h>
@@ -106,12 +104,12 @@ namespace dsl
             operator float() const;
         };
 
-        // The EntityEvent class can be used by callbacks to identify the event that
-        // happend.
+        // A instance of the EntityEvent will be sent to the callback when a
+        // publish happens
         struct EntityEvent : public dsl::types::Event<Entity, EntitySubscription>
         {
             // Factory methods
-            static EntityEvent create_entity_event(const Entity &entity, const EntitySubscription &subscription, bool value_changed);
+            static EntityEvent make_entity_event(const Entity &entity, const EntitySubscription &subscription, bool value_changed);
 
             // EntityEvent-only variables
             bool changed;
