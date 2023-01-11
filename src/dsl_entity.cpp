@@ -1,3 +1,4 @@
+#include <thread>
 #include "dsl_entity.h"
 
 namespace dsl
@@ -42,7 +43,7 @@ namespace dsl
             {
                 if ((sub.run_always && !value_changed) || (value_changed))
                 {
-                    EntityEvent e = EntityEvent::create_entity_event(
+                    EntityEvent e = EntityEvent::make_entity_event(
                         *this,
                         sub,
                         value_changed);
