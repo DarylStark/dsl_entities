@@ -47,6 +47,9 @@ namespace dsl
         {
             for (const auto &sub : __subscriptions)
             {
+                if (sub.callback == nullptr)
+                    break;
+
                 if ((sub.run_always && !value_changed) || (value_changed))
                 {
                     EntityEvent e = EntityEvent::make_entity_event(
