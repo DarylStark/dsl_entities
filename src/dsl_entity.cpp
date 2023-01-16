@@ -25,6 +25,12 @@ namespace dsl
             __subscriptions.push_back(subscription);
         }
 
+        void Entity::subscribe(entity_callback_type callback, const std::string &identifier)
+        {
+            this->subscribe(
+                EntitySubscription::make_entity_subscription(callback, identifier));
+        }
+
         void Entity::unsubscribe(const std::string &identifier)
         {
             for (const auto &sub : __subscriptions)

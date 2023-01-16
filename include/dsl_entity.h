@@ -76,6 +76,7 @@ namespace dsl
 
             // Methods to subscribe and unsubscribe
             void subscribe(EntitySubscription subscription);
+            void subscribe(entity_callback_type callback, const std::string &identifier);
             void unsubscribe(const std::string &identifier);
             void unsubscribe_all();
 
